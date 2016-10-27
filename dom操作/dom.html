@@ -1,0 +1,57 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<style>
+		*{
+			margin: 0;padding: 0;
+		}
+		ul{
+			overflow: auto;
+			width: 300px;
+			height: 300px;
+			border: 1px solid #666;
+		}
+		li{
+			list-style: none;
+			width: 95%;
+		}
+	</style>
+	<script type="text/javascript" src="jquery-2.0.2.min.js"></script>
+</head>
+<body>
+	<button id="add">添加</button>
+    <button id="del">删除</button>
+    <input type="text" placeholder="请输入一个整数"/>
+    <ul>
+    </ul>
+</body>
+</html>
+<script type="text/javascript">
+    var i=0;
+    var cf = null;
+    $("#add").on("click",function(){
+        var arr = [];
+        var num = parseInt($("input").val());
+        if(!isNaN(num)){
+        	i++;
+            cf = $("ul").children().size()+1;
+            for(var n=0;n<num;n++){
+                (function(index){
+                    arr.push(cf);
+                })(n)
+        }
+        $("ul").append("<li>"+i+"."+arr.join("")+"</li>");
+        $("li").css({"height":"50px","border-bottom":"1px solid #666"});
+        }else{
+            alert("输入一个正确的数字");
+        }
+        
+    })
+    $("#del").on("click",function(){
+        console.log($("ul").children().size())
+        $("ul").children().eq($("ul").children().size()-1).remove();
+        i--;
+    })
+</script>
