@@ -1,0 +1,36 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+
+.content{
+	margin: 0 auto;
+	border: 1px solid #205081;
+	width:1002px;
+	height: 502px;
+}
+
+.btn{
+	background-color: #72CC53;
+	color: white;
+	border:0;
+	width: 50px;
+	height: 30px;
+	margin: 15px;
+}
+
+#kg{
+	width: 212px;
+	height: 32px;
+}
+input::input-placeholder{padding-left: 10px}
+input::-ms-input-placeholder{padding-left: 10px}
+input::-webkit-input-placeholder{padding-left: 10px}
+input::-moz-input-placeholder{padding-left: 10px}
+
+.ol{
+	padding-left: 30px;
+}
+
+
+}
