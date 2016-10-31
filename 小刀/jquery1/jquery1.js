@@ -1,4 +1,4 @@
-$(function() {
+﻿$(function() {
 	$("#add").bind("click", function() {
 		var in_value = $("#num").val();
 		var lis = $("#container").children().length;
@@ -9,10 +9,15 @@ $(function() {
 			if (in_value > 200) {
 				alert("太特么大了！！！");
 			} else {
-				for (var i = 0; i < in_value; i++) {
-					str += (lis + 1);
+				var checkNum = /^[0-9]*[1-9][0-9]*$/;
+				if (checkNum.test(in_value)) {
+					for (var i = 0; i < in_value; i++) {
+						str += (lis + 1);
+					}
+					$("#container").last().append("<li>" + (lis + 1) + "." + str + "</li>");
+				} else {
+					alert("兄弟，是正整数啊!");
 				}
-				$("#container").last().append("<li>" + (lis + 1) + "." + str + "</li>");
 			}
 		}
 	});
