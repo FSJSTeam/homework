@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta charset="UTF-8">
+<title>Clock</title>
+<style>
+*{
+	margin: 0;
+	padding: 0;
+}
+p{
+	height: 55px;
+	background-color: black;
+	text-align: center;
+	font-size: 25px;
+	color: white;
+	font-weight: 700;
+	line-height: 55px;
+		
+}
+span{
+	
+	border:1px solid red;
+	border-radius: 30px; 
+	padding: 10px;
+}
+
+#animate{
+	height: 3px;
+	background-color: green;
+	width:1px;
+	position: absolute;
+	left: 0;
+	top: 55px;
+}
+</style>
+
+<script>
+
+
+window.onload = function(){
+	/*时钟开始*/
+function displayTime(){
+var elt = document.getElementById("Hour");
+var flt = document.getElementById("Second");
+var glt = document.getElementById("Minute");
+var now = new Date();
+var hour = now.getHours();
+hour = changeNum(hour);
+var minute = now.getMinutes();
+minute = changeNum(minute);
+var second = now.getSeconds();
+second = changeNum(second);
+
+elt.innerHTML =hour;
+flt.innerHTML =minute; 
+glt.innerHTML =second; 
+setTimeout(displayTime,1000) ;
+}
+	displayTime();
+function changeNum(i){
+	if(i<10){return "0"+i;}
+	else{ return i}
+
+
+}
+/*时钟结束*/
+
+/*动画开始*/
+var oDiv = document.getElementById('animate');
+setTimeout(aniMate,100)
+
+
+
+function aniMate(){
+	var oDiv = document.getElementById('animate');
+	setInterval(function(){
+	speed=10;
+	if(oDiv.offsetWidth>=1350){
+		oDiv.style.width=0+'px';
+	}
+	else{
+		oDiv.style.width=oDiv.offsetWidth+speed+'px';
+	}
+	},30)
+}
+/*动画结束*/
+}
+</script>
+</head>
+
+<p>
+<span id="Hour"></span>
+:
+<span id="Second"></span>
+:
+<span id="Minute"></span> 
+</p>
+<div id="animate"></div>
+</body>
+</html>
